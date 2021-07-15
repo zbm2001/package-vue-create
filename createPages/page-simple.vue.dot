@@ -1,0 +1,41 @@
+<template>
+  <!-- <%= it.title %> -->
+  <div class="art-page <%= it.rootClass %>" :class="cpd_rootClass">
+
+  </div>
+</template>
+
+<script>
+import pageMixin from '<%= it.relativePathPrefix %>mixins/pageMixin'
+
+export default {
+  name: '<%= it.pageName %>',
+  mixins: [pageMixin],
+  data () {
+    return {
+    }
+  },
+  head () {
+    return {
+      title: this.<%= it.i18n_title %>,
+    }
+  },
+  mounted () {
+    this.init()
+  },
+  methods: {
+    init () {
+      this.main()
+    },
+    main () {
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+@import '<%= it.relativePathPrefix %>assets/scss/pc/common';
+
+.<%= it.rootClass %> {
+}
+</style>

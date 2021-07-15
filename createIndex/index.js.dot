@@ -1,0 +1,61 @@
+<%##def.defaultBanner:
+/**
+ * ！！！自动生成，切勿擅自改动 ！！！
+ * 该文件由创建或运行时生成
+ */
+#%>
+
+<%##def.defaultImportWildcard:
+<%= it.map(moduleName => `import * as ${moduleName} from './${moduleName}'`).join('\n') %>
+#%>
+
+<%##def.defaultExportWildcard:
+<%= it.map(moduleName => `export * from './${moduleName}'`).join('\n') %>
+#%>
+
+<%##def.defaultExportModules:
+export {
+  <%= it.join(',\n  ') %>
+}
+#%>
+
+<%##def.defaultExportDefault:
+export default {
+  <%= it.join(',\\n  ') %>
+}
+#%>
+
+<%## def.bannerStr:
+<%# typeof def.banner === 'string' ? def.banner :
+def.banner ? def.defaultBanner : '' %>
+#%>
+
+<%## def.importWildcardStr:
+<%# typeof def.importWildcard === 'string' ? def.importWildcard :
+def.importWildcard ? def.defaultImportWildcard : '' %>
+#%>
+
+<%## def.exportWildcardStr:
+<%# typeof def.exportWildcard === 'string' ? def.exportWildcard :
+def.exportWildcard ? def.defaultExportWildcard : '' %>
+#%>
+
+<%## def.exportModulesStr:
+<%# typeof def.exportModules === 'string' ? def.exportModules :
+def.exportModules ? def.defaultExportModules : '' %>
+#%>
+
+<%## def.exportDefaultStr:
+<%# typeof def.exportDefault === 'string' ? def.exportDefault :
+def.exportDefault ? defaultExportDefault : '' %>
+#%>
+
+<%#
+[
+  def.bannerStr,
+  def.importWildcardStr,
+  def.exportWildcardStr,
+  def.exportModulesStr,
+  def.exportDefaultStr
+].filter(str => str).join('\n')
+%>

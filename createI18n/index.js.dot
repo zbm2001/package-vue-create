@@ -1,0 +1,10 @@
+/**
+* ！！！默认生成，切勿擅自改动 ！！！
+* 该文件由构建时或运行时生成
+*/
+const m = m => m.default || m
+
+export default {
+  <%= it.map(({locale, webpackChunkName, pathname}) => `'${locale}': () => import(/* webpackChunkName: "${webpackChunkName}" */'${pathname}').then(m => m.default || m)`
+).join(',\n  ') %>
+}

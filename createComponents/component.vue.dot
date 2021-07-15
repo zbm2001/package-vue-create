@@ -1,0 +1,23 @@
+<template>
+  <!-- <%= it.title %> -->
+  <div class="<%= it.rootClass %>">
+  </div>
+</template>
+
+<script>
+export default {
+  name: '<%= it.componentName %>',
+  props: {},
+  data () {
+    return {
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+@import '<%= it.relativePathPrefix %>assets/scss/mobile/common';
+
+.<%= it.rootClass %> {
+}
+</style>

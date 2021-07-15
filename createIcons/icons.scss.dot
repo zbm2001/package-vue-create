@@ -1,0 +1,8 @@
+/**
+* ！！！默认生成，切勿擅自改动 ！！！
+* deploy/prebuild/icons 运行时或构建预生成的配置
+*/
+<%~ it:value:index %>
+.icon-<%= value.className %> { background-image: url(<%= value.path %>); }<%? value.activeClass %>
+<%= ['>*>', '>', ''].map(s => '.active' + s + '.icon-' + value.activeClass).join(', ') %> { background-image: url(<%= value.path %>); }<%?%>
+<%~%>

@@ -1,0 +1,144 @@
+<template>
+  <!-- <%= it.title %> -->
+  <div class="art-page <%= it.rootClass %>" :class="cpd_rootClass">
+
+  </div>
+</template>
+
+<script>
+import pageMixin from '<%= it.relativePathPrefix %>mixins/pageMixin'
+import {getAnnounceNew} from '<%= it.relativePathPrefix %>api/article'
+import g from '<%= it.relativePathPrefix %>lib/g'
+
+export default {
+  name: '<%= it.pageName %>',
+  mixins: [pageMixin],
+  props: {},
+  data () {
+    return {
+      bulletin: {
+        list: [],
+        currentPage: 1,
+        pageSize: 6
+      }
+    }
+  },
+  /**
+   * head 方法 https://zh.nuxtjs.org/api/pages-head/
+   * 类型： Object 或 Function
+   * 使用 head 方法设置当前页面的头部标签。
+   * 在 head 方法里可通过 this 关键字来获取组件的数据，你可以利用页面组件的数据来设置个性化的 meta 标签。
+   */
+  head () {
+    return {
+      title: this.<%= it.i18n_title %>,
+      meta: [
+        // {hid: 'description', name: 'description', content: ''},
+        // {hid: 'keywords', name: 'keywords', content: ''}
+      ]
+    }
+  },
+  // /**
+  //  * asyncData 方法 https://zh.nuxtjs.org/api/
+  //  * 类型： Function
+  //  * asyncData 方法会在组件（仅限于页面组件）每次加载之前被调用
+  //  * 注意：由于asyncData方法是在组件 初始化 前被调用的，所以在方法内是没有办法通过 this 来引用组件的实例对象。
+  //  * 上下文对象：https://zh.nuxtjs.org/api/context
+  //  */
+  // asyncData ({isStatic, isDev, isHMR, app, store, payload, error, base, env, req, res, ssrContext, redirect, beforeNuxtRender, route, next, _redirected, _errored, params, query, $axios}) {
+  //   if (isClient) {
+  //     return {}
+  //   } else {
+  //     return {}
+  //   }
+  // },
+  // /**
+  //  * fetch 方法 https://zh.nuxtjs.org/api/pages-fetch
+  //  * 类型： Function
+  //  * fetch 方法用于在渲染页面前填充应用的状态树（store）数据，与 asyncData 方法类似，不同的是它不会设置组件的数据。
+  //  * 如果页面组件设置了 fetch 方法，它会在组件每次加载前被调用（在服务端或切换至目标路由之前）。
+  //  * 上下文对象：https://zh.nuxtjs.org/api/context
+  //  */
+  // fetch ({store, params}) {
+  //   return axios.get(g.api)
+  //     .then((res) => {
+  //       store.commit('setState', res.data)
+  //     })
+  // },
+  // /**
+  //  * middleware 属性 https://zh.nuxtjs.org/api/pages-middleware
+  //  * 类型： String 或 Array (数组元素类型： String)
+  //  */
+  // middleware: 'middleware',
+  // /**
+  //  * validate 方法 https://zh.nuxtjs.org/api/pages-validate
+  //  * 类型： Function (可以是异步函数)
+  //  * Nuxt.js 可以让你在动态路由对应的页面组件中配置一个校验方法用于校验动态路由参数的有效性。
+  //  */
+  // async validate({ params, query, store }) {
+  //   // await operations
+  //   // 如果校验方法返回的值不为 true，Nuxt.js 呈现页面并显示 404 错误页面
+  //   // Must be a number
+  //   return /^\d+$/.test(params.id)
+  // },
+  // /**
+  //  * layout 属性 https://zh.nuxtjs.org/api/pages-layout
+  //  * 类型： String 或 Function (默认值： 'default')
+  //  * layouts 根目录下的所有文件都属于个性化布局文件，可以在页面组件中利用 layout 属性来引用。
+  //  * 使用 layout 属性来为页面指定使用哪一个布局文件：
+  //  */
+  // layout: 'default',
+  // /**
+  //  * watchQuery 属性 https://zh.nuxtjs.org/api/pages-watchQuery
+  //  * 类型： Boolean 或 Array (默认: [])
+  //  * 使用watchQuery属性可以监听参数字符串的更改。 如果定义的字符串发生变化，将调用所有组件方法(asyncData, fetch, validate, layout, ...)。 为了提高性能，默认情况下禁用。
+  //  * 如果您要为所有参数字符串设置监听， 请设置： watchQuery: true。
+  //  */
+  // watchQuery: ['page'],
+  // computed: {},
+  // filters: {},
+  // watch: {}
+  // beforeRouteEnter: (to, from, next) => {},
+  // beforeRouteLeave: (to, from, next) => {},
+  // beforeCreate () {},
+  // created () {},
+  // beforeMount () {},
+  mounted () {
+    this.init()
+  },
+  // beforeUpdate () {},
+  // updated () {},
+  // activated () {},
+  // beforeDestroy () {},
+  // destroyed () {},
+  methods: {
+    /**
+     * 初始化函数
+     */
+    init () {
+      this.main() // 调用主业务函数
+    },
+    /**
+     * 主业务函数
+     */
+    main () {
+      let {currentPage, pageSize} = this.bulletin
+      // 新版请求示例，详见：/src/plugins/index.js.bak - $ajax()
+      this.$ajax('getAnnounceNew', getAnnounceNew({currentPage, pageSize}))
+        .then(res => {
+          // console.log('res', res)
+          if (res.data.code === 0) {
+            this.bulletin.list = res.data.data
+          }
+        })
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+@import '<%= it.relativePathPrefix %>assets/scss/w/common';
+
+.<%= it.rootClass %> {
+}
+</style>

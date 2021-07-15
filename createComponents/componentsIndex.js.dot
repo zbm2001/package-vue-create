@@ -1,0 +1,18 @@
+/**
+ * ！！！默认生成，切勿擅自改动 ！！！
+ * 该文件由构建时或运行时生成
+ */
+import Vue from 'vue'<%~ it:value:index %><%? value.layout && !value.async %>
+import <%= value.componentName %> from '<%= value.relativePath %>'<%?%><%~%>
+
+export {
+  <%= it.filter(value => value.layout && !value.async).map(value => value.componentName).join(',\n  ') %>
+}
+<%~ it:value:index %><%? value.layout && !value.async %>
+Vue.component('<%= value.componentName %>', <%= value.componentName %>)<%?%><%~%>
+
+const m = m => m.default || m
+<%~ it:value:index %><%? value.async %>
+export const <%= value.componentName %> = () => import(/* webpackChunkName: "<%= value.webpackChunkName %>" */'<%= value.relativePath %>').then(m)<%?%><%~%>
+<%~ it:value:index %><%? value.async %>
+Vue.component('<%= value.componentName %>', <%= value.componentName %>)<%?%><%~%>

@@ -1,0 +1,49 @@
+<template>
+  <!-- <%= it.title %> -->
+  <div class="art-page <%= it.rootClass %>" :class="cpd_rootClass">
+
+  </div>
+</template>
+
+<script>
+import pageMixin from '<%= it.relativePathPrefix %>mixins/pageMixin'
+import g from '<%= it.relativePathPrefix %>plugin/g'
+
+export default {
+  name: '<%= it.pageName %>',
+  mixins: [pageMixin],
+  props: {},
+  data () {
+    return {
+    }
+  },
+  head () {
+    return {
+      title: this.<%= it.i18n_title %>,
+    }
+  },
+  mounted () {
+    this.init()
+  },
+  methods: {
+    /**
+     * 初始化函数
+     */
+    init () {
+      this.main()
+    },
+    /**
+     * 主业务函数
+     */
+    main () {
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+@import '<%= it.relativePathPrefix %>assets/scss/w/common';
+
+.<%= it.rootClass %> {
+}
+</style>
