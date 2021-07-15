@@ -162,7 +162,7 @@ function createI18nIndex (config = {}) {
   console.timeEnd(consoleTimeName)
 }
 
-modules.exports = {
+module.exports = {
   createLanguages,
   createLanguageFolders,
   createLanguageIndex,
