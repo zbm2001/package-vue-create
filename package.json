@@ -1,5 +1,5 @@
 {
-  "name": "package-vue-create-utils",
+  "name": "vue-create-utils",
   "version": "1.0.0",
   "description": "A vue utils to create pages, components, i18n, dir index, etc. Usage git submodule in dir /packages of nodejs npm project.",
   "main": "src/index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zbm2001/package-vue-create-utils.git"
+    "url": "git+https://github.com/zbm2001/vue-create-utils.git"
   },
   "author": "zbm2001@aliyun.com",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zbm2001/package-vue-create-utils/issues"
+    "url": "https://github.com/zbm2001/vue-create-utils/issues"
   },
-  "homepage": "https://github.com/zbm2001/package-vue-create-utils#readme",
+  "homepage": "https://github.com/zbm2001/vue-create-utils#readme",
   "dependencies": {
     "md5": "^2.3.0",
     "md5-file": "^5.0.0",
