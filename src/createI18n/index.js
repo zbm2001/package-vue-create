@@ -3,7 +3,7 @@ const fs = require('fs')
 const path = require('path')
 const md5 = require('md5')
 const md5File = require('md5-file')
-const {compileToFn, compileToStr} = require('../../utils/dot')
+const {compileToFn, compileToStr} = require('@zbm1/pkg-utils/src/dot')
 
 const defaultConfig = require('./languages.config')
 const {getPagesConfig} = require('../createPages')

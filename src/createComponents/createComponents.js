@@ -1,15 +1,15 @@
-require('../../utils/String')
+require('@zbm1/pkg-utils/src/string').nativelize()
 const fs = require('fs')
 const path = require('path')
 const md5 = require('md5')
 const md5File = require('md5-file')
-const {mkdirs} = require('../utils/fs-plugins')
-const {compileToFn} = require('../../utils/dot')
+const {mkdirs} = require('@zbm1/pkg-utils/src/path-plugins')
+const {compileToFn} = require('@zbm1/pkg-utils/src//dot')
 const {
   regex_delimiters_g,
   regex_hyphensLowercase_g,
   regex_hyphens_g
-} = require('../utils/regexes')
+} = require('@zbm1/pkg-utils/src/regexes')
 
 const defaultConfig = require('./config')
 const defaultComponentsConfig = require(defaultConfig.configFile)

@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const md5 = require('md5')
 const md5File = require('md5-file')
-const {compileToFn} = require('../../utils/dot')
+const {compileToFn} = require('@zbm1/pkg-utils/src/dot')
 const {regex_delimiters_g, regex_hyphensLowercase_g, regex_hyphens_g} = require('../utils/regexes')
 
 const defaultConfig = require('./config')

@@ -1,6 +1,6 @@
 
 const path = require('path')
-const {readdirtree, mkdirs} = require('../../utils/path-plugins')
+const {readdirtree, mkdirs} = require('@zbm1/pkg-utils/src//path-plugins')
 
 const {srcOutputDir: defaultPagesDir} = require('../createPages/config')
 const {srcOutputDir: defaultComponentsDir} = require('./config')

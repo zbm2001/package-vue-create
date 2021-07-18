@@ -2,8 +2,8 @@ const fs = require('fs')
 const path = require('path')
 const md5 = require('md5')
 const md5File = require('md5-file')
-const {getChildFiles, sortFilesByPathname} = require('../../utils/fs-plugins')
-const {compileToStr} = require('../../utils/dot')
+const {getChildFiles, sortFilesByPathname} = require('@zbm1/pkg-utils/src/path-plugins')
+const {compileToStr} = require('@zbm1/pkg-utils/src/dot')
 
 const defaultConfig = require('./config')
 

@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/zbm2001/vue-create-utils#readme",
   "dependencies": {
+    "@zbm1/pkg-utils": "^0.1.0",
     "md5": "^2.3.0",
     "md5-file": "^5.0.0",
     "shelljs": "^0.8.4"
