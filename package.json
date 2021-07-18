@@ -1,6 +1,6 @@
 {
   "name": "@zbm1/vue-create-utils",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "A vue utils to create pages, components, i18n, dir index, etc. Usage git submodule in dir /packages of nodejs npm project.",
   "main": "src/index.js",
   "scripts": {
